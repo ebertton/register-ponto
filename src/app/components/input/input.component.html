@@ -1,0 +1,10 @@
+<div class="md-textbox">
+  <input [ngClass]="control.value ? 'has-value' : ''" [formControl]="control"  type="text" [id]="inputId" [ngClass]="control.invalid && control.dirty && control.touched ? 'border-danger' : '' "/>
+  <label [for]="inputId">{{ label }}</label>
+</div>
+
+<ng-container *ngIf="control.invalid && control.dirty && control.touched">
+  <div *ngFor="let err of control.errors | keyvalue" class="text-danger">
+    {{ errorMessages[err.key] }}
+  </div>
+</ng-container>
